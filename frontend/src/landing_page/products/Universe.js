@@ -1,7 +1,5 @@
 import React from 'react'
 
-
-
 function Universe() {
     return ( 
         <div className="container mt-5">
@@ -25,7 +23,7 @@ function Universe() {
           <p className="text-small text-muted">Option trading platform</p>
         </div>
         <div className="col-4 p-3 mt-5">
-          <img src="media\images\Fundhouse.png"  style={{width:"60%"}}/>
+          <img src="media/images/Fundhouse.png"  style={{width:"60%"}}/>
           <p className="text-small text-muted">Asset management</p>
         </div>
         <div className="col-4 p-3 mt-5">
