@@ -14,7 +14,12 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const res = await axios.post("http://localhost:3002/login", {
+            // const res = await axios.post("https://ksxchange.onrender.com/login", {
+            //     email,
+            //     password,
+            // });
+
+            const res = await axios.post("https://ksxchange.onrender.com/login", {
                 email,
                 password,
             });

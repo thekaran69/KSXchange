@@ -5,7 +5,7 @@ import { commanrequest } from "./ApiCall";
 export const signup = async(data) => {
     return await commanrequest("POST", `${BACKEND_URL}/signup`, data)
 }
-// http://localhost:3002/signup
+// https://ksxchange.onrender.com/signup
 
 // export const forgetpassword = async(data) => {
 //     return axios.post('http://localhost:3000/forgetpassword', data) 
