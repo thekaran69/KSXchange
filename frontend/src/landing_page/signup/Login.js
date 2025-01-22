@@ -29,7 +29,7 @@ const Login = () => {
             if (res.data === "exist") {
                 alert("Login successful!");
                 // navigate('/'); // Redirect to homepage
-                window.location.href = "http://localhost:3001/";
+                window.location.href = "https://ksxchange-dashboard.vercel.app//";
             } else if (res.data === "notexist") {
                 alert("User does not exist. Please sign up.");
             } else {
