@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Cookies from "js-cookie"
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -13,6 +14,16 @@ const Menu = () => {
   const handleProfileClick = (index) => {
     setIsProfileDropdownOpen(!isProfileDropdownOpen);
   };
+
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    Cookies.remove("user")
+    // navigate("https://ksxchange.vercel.app/login")
+    // window.location.href = "https://ksxchange.vercel.app/login";
+    window.open("https://ksxchange.vercel.app/login");
+
+  }
 
   const menuClass = "menu";
   const activeMenuClass = "menu selected";
@@ -94,6 +105,7 @@ const Menu = () => {
           <div className="avatar">KS</div>
           <p className="username">USERID</p>
         </div>
+        <button onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );
