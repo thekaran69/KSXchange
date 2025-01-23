@@ -147,7 +147,7 @@ const Signup = () => {
         toast.success("Signup successful!")
 
         setTimeout(() => {
-          navigate("/dashboard")
+          window.location.href = "https://ksxchange-dashboard.vercel.app/";
         }, 2000)
       }
     } catch (error) {
