@@ -87,7 +87,7 @@ const Login = () => {
     e.preventDefault()
 
     try {
-      const res = await axios.post("https://ksxchange.onrender.com/login", {
+      const res = await axios.post("https://ksxchange-backend.vercel.app/login", {
         email,
         password,
       })
