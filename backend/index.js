@@ -236,6 +236,9 @@ app.get("/user", async (req, res) => {
 
 app.post("/signup", Signup);
 app.post("/login", Login);
+app.get("/", (req, res)=>{
+    res.send("hello from backend");
+})
 
 app.listen(PORT, () => {
     console.log("App Started");
