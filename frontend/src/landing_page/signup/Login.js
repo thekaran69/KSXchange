@@ -96,7 +96,7 @@ const Login = () => {
 
       if (res.data === "exist") {
         // Set a cookie with user information
-        Cookies.set("user", JSON.stringify({ email }), { expires: 7, path: '/' });
+        Cookies.set("user", JSON.stringify({ email }), { expires: 2, path: '/' });
         alert("Login successful!")
         window.location.href = "https://ksxchange-dashboard.vercel.app/";
         // window.location.href = "http://localhost:3001/";

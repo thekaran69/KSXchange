@@ -143,7 +143,7 @@ const Signup = () => {
       const response = await signup(data)
       if (response.status === 200 || response.status === 201) {
         // Set a cookie with user information
-        Cookies.set("user", JSON.stringify({ email: data.email }), { expires: 7, path: '/' })
+        Cookies.set("user", JSON.stringify({ email: data.email }), { expires: 2, path: '/' })
         toast.success("Signup successful!")
 
         setTimeout(() => {
