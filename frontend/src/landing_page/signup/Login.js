@@ -88,17 +88,19 @@ const Login = () => {
 
     try {
       const res = await axios.post("https://ksxchange-backend.vercel.app/login", {
+        // const res = await axios.post("http://localhost:3002/login", {
         email,
         password,
       })
-
-      console.log("Server Response:", res.data)
+     
 
       if (res.data === "exist") {
         // Set a cookie with user information
-        Cookies.set("user", JSON.stringify({ email }), { expires: 7 })
+        Cookies.set("user", JSON.stringify({ email }), { expires: 7, path: '/' });
         alert("Login successful!")
         window.location.href = "https://ksxchange-dashboard.vercel.app/";
+        // window.location.href = "http://localhost:3001/";
+
       } else if (res.data === "notexist") {
         alert("User does not exist. Please sign up.")
       } else {

@@ -236,6 +236,18 @@ app.get("/user", async (req, res) => {
 
 app.post("/signup", Signup);
 app.post("/login", Login);
+// app.post('/login', (req, res) => {
+//     console.log('Login request received');
+//     const { email, password } = req.body;
+//     // Add your login logic here
+//     if (email === 'abhinandan@gmail.com' && password === '123456') {
+//       console.log('User exists');
+//       res.send('exist');
+//     } else {
+//       res.send('notexist');
+//     }
+//   });
+  
 app.get("/", (req, res)=>{
     res.send("hello from backend");
 })

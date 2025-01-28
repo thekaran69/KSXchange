@@ -143,11 +143,12 @@ const Signup = () => {
       const response = await signup(data)
       if (response.status === 200 || response.status === 201) {
         // Set a cookie with user information
-        Cookies.set("user", JSON.stringify({ email: data.email }), { expires: 7 })
+        Cookies.set("user", JSON.stringify({ email: data.email }), { expires: 7, path: '/' })
         toast.success("Signup successful!")
 
         setTimeout(() => {
           window.location.href = "https://ksxchange-dashboard.vercel.app/";
+          // window.location.href = "http://localhost:3001/";
         }, 2000)
       }
     } catch (error) {

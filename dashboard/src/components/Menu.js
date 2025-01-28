@@ -21,7 +21,8 @@ const Menu = () => {
     Cookies.remove("user")
     // navigate("https://ksxchange.vercel.app/login")
     // window.location.href = "https://ksxchange.vercel.app/login";
-    window.open("https://ksxchange.vercel.app/login");
+    window.open("https://ksxchange.vercel.app/login");  // working
+    // window.open("http://localhost:3000/login");
 
   }
 
