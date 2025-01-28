@@ -140,7 +140,15 @@ const Signup = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await signup(data)
+      // const response = await signup(data)
+      const response = await fetch("https://ksxchange-backend.vercel.app/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      
       if (response.status === 200 || response.status === 201) {
         // Set a cookie with user information
         Cookies.set("user", JSON.stringify({ email: data.email }), { expires: 2, path: '/' })
