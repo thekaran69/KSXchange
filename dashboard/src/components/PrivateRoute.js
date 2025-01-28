@@ -1,7 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Cookies from "js-cookie";
-
 const PrivateRoute = () => {
   const user = Cookies.get("user");
 
