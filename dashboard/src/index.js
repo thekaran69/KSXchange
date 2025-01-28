@@ -28,10 +28,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/*" element={<Home />} /> */}
-        <Route element={<PrivateRoute />}>
+        <Route path="/*" element={<Home />} />
+        {/* <Route element={<PrivateRoute />}>
           <Route path="/*" element={<Home />} />
-        </Route>
+        </Route> */}
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
