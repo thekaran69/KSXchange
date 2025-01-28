@@ -21,6 +21,35 @@ const Login = () => {
     //     password,
     //   })
      
+    // try {
+    //   const response = await fetch("https://ksxchange-backend.vercel.app/login", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       email,
+    //       password,
+    //     }),
+    //   });
+
+    //   const res = await response.text(); 
+    //   if (res === "exist") {
+    //     // Set a cookie with user information
+    //     Cookies.set("user", JSON.stringify({ email }), { expires: 2, path: '/' });
+    //     alert("Login successful!")
+    //     window.location.href = "https://ksxchange-dashboard.vercel.app/";
+    //     // window.location.href = "http://localhost:3001/";
+
+    //   } else if (res === "notexist") {
+    //     alert("User does not exist. Please sign up.")
+    //   } else {
+    //     alert("User does not exist. Please sign up.")
+    //   }
+    // } catch (error) {
+    //   console.error("Error during login:", error)
+    //   alert("An error occurred while logging in. Please try again.")
+    // }
     try {
       const response = await fetch("https://ksxchange-backend.vercel.app/login", {
         method: "POST",
@@ -32,23 +61,24 @@ const Login = () => {
           password,
         }),
       });
-
-      const res = await response.text(); 
-      if (res === "exist") {
+    
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    
+      const res = await response.json(); // Parse response as JSON
+    
+      if (res.success) {
         // Set a cookie with user information
         Cookies.set("user", JSON.stringify({ email }), { expires: 2, path: '/' });
-        alert("Login successful!")
+        alert("Login successful!");
         window.location.href = "https://ksxchange-dashboard.vercel.app/";
-        // window.location.href = "http://localhost:3001/";
-
-      } else if (res === "notexist") {
-        alert("User does not exist. Please sign up.")
       } else {
-        alert("User does not exist. Please sign up.")
+        alert(res.message || "Login failed. Please try again.");
       }
     } catch (error) {
-      console.error("Error during login:", error)
-      alert("An error occurred while logging in. Please try again.")
+      console.error("Error during login:", error);
+      alert("An error occurred while logging in. Please try again.");
     }
   }
 

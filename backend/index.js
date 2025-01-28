@@ -18,22 +18,31 @@ const { Signup, Login } = require('./Controllers/AuthController');
 const app = express();
 
 // app.use(cors());
-const allowedOrigins = [
-    'https://ksxchange.vercel.app',
-    'https://ksxchange-dashboard.vercel.app'
-];
+// const allowedOrigins = [
+//     'https://ksxchange.vercel.app',
+//     'https://ksxchange-dashboard.vercel.app'
+// ];
+
+// app.use(cors({
+//     origin: (origin, callback) => {
+//         if (allowedOrigins.includes(origin) || !origin) {
+//             callback(null, true); // Allow requests from listed origins
+//         } else {
+//             callback(new Error('Not allowed by CORS')); // Block other origins
+//         }
+//     },
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+//     credentials: true // If cookies or authorization headers are used
+// }));
+
 
 app.use(cors({
-    origin: (origin, callback) => {
-        if (allowedOrigins.includes(origin) || !origin) {
-            callback(null, true); // Allow requests from listed origins
-        } else {
-            callback(new Error('Not allowed by CORS')); // Block other origins
-        }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-    credentials: true // If cookies or authorization headers are used
+  origin: 'https://ksxchange.vercel.app', // Allow your frontend
+  methods: ['GET', 'POST'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  credentials: true // If using cookies or authorization
 }));
+
 app.use(bodyParser.json());
 
 
